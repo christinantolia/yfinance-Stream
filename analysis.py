@@ -1,5 +1,6 @@
 import curl_cffi
 import pandas as pd
+import streamlit as st
 
 from yfinance import utils
 from yfinance.config import YfConfig
@@ -196,3 +197,8 @@ class Analysis:
             if not YfConfig.debug.hide_exceptions:
                 raise
             self._earnings_trend = []
+st.title("Financial Analysis App")
+st.write("Η εφαρμογή ξεκίνησε!")
+ticker = st.text_input("Δώσε ένα Symbol (πχ. AAPL):", "AAPL")
+st.write(f"Ψάχνω δεδομένα για: {ticker}")
+
