@@ -201,4 +201,10 @@ st.title("Financial Analysis App")
 st.write("Η εφαρμογή ξεκίνησε!")
 ticker = st.text_input("Δώσε ένα Symbol (πχ. AAPL):", "AAPL")
 st.write(f"Ψάχνω δεδομένα για: {ticker}")
+import yfinance as yf 
+data_history = yf.Ticker(symbol).history(period="1mo")
+st.subheader(f"Διακύμανση τιμής για την {symbol}")
+st.line_chart(data_history['Close'])
+st.write("Ιστορικά Δεδομένα (Τελευταίες 5 ημέρες):")
+st.dataframe(data_history.tail())
 
